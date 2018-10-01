@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
 
-const Button = ({ color, outline }) => {
+const Button = (props) => {
+  const { color, outline } = props;
   const classes = cn(
     'btn',
     { 'is-outline': outline },
@@ -10,11 +11,12 @@ const Button = ({ color, outline }) => {
     'min-w-8r'
   );
   return (
-    <button className={classes}>Button</button>
+    <button type="button" {...props} className={classes} />
   );
 };
 
 Button.propTypes = {
+  children: PropTypes.node,
   color: PropTypes.string,
   outline: PropTypes.bool,
 };
