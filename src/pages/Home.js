@@ -1,24 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const Home = () => (
-  <div className="p-content">
+  <Fragment>
     <h1>Home</h1>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-    <p>Lorem</p>
-  </div>
+  </Fragment>
 );
 
 export default Home;

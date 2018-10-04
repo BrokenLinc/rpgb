@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { auth } from '../firebase';
 import SignInWithGoogle from '../auth/SignInWithGoogle';
 
 const SignIn = () => (
-  <div className="p-content">
+  <Fragment>
     <h1>Sign In</h1>
-    <SignInWithGoogle className="btn is-green is-outline" auth={auth} />
-  </div>
+    <SignInWithGoogle className="btn" auth={auth} />
+  </Fragment>
 );
 
 export default SignIn;

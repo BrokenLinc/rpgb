@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import map from 'lodash/map';
 
 import { auth } from '../firebase';
-import paths from '../paths';
-import Button from '../components/Button';
+import Button from './Button';
+import { mainMenu } from '../menus';
 
 const handleClickSignOut = () => auth.signOut();
 
 const Menu = ({ isUserLoaded, user }) => (
-  <header className="header p-content">
+  <Fragment>
     {isUserLoaded && (
       <ul>
         <li>Welcome, {user.displayName}</li>
-        <li><Link to={paths.home()}>Home</Link></li>
-        <li><Link to={paths.groups()}>Groups</Link></li>
+        {map(mainMenu.routes, ({ title, path}, index) => (
+            <li key={index}><Link to={path()}>{title()}</Link></li>
+        ))}
         <Button onClick={handleClickSignOut}>Log out</Button>
       </ul>
     )}
-  </header>
+  </Fragment>
 );
 
 Menu.propTypes = {

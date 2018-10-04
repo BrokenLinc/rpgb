@@ -4,7 +4,7 @@ import firebase from 'firebase';
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-class SignIn extends Component {
+class SignInWithGoogle extends Component {
   handleClick = () => {
     this.props.auth.signInWithPopup(googleAuthProvider);
   };
@@ -22,9 +22,9 @@ class SignIn extends Component {
   }
 }
 
-SignIn.propTypes = {
+SignInWithGoogle.propTypes = {
   auth: PropTypes.object.isRequired,
   buttonProps: PropTypes.object,
 };
 
-export default SignIn;
+export default SignInWithGoogle;

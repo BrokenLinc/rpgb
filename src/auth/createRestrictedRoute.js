@@ -3,10 +3,10 @@ import { Route } from 'react-router-dom';
 
 import restrictAccess from './restrictAccess';
 
-const createRestrictedRoute = (ReplacementComponent) => {
+const createRestrictedRoute = (ReplacementComponent, stateKey = 'user') => {
   const RestrictedRoute = (props) => {
     const routeProps = Object.assign({}, props, {
-      component: restrictAccess(props.component, ReplacementComponent),
+      component: restrictAccess(props.component, ReplacementComponent, stateKey),
     });
     return <Route {...routeProps} />;
   };

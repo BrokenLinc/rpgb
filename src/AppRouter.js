@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import routes from './routes';
 import createRestrictedRoute from './auth/createRestrictedRoute';
-import ScrollToTop from './components/ScrollToTop';
-import paths from './paths';
+
+// Components
 import Menu from './components/Menu';
-import Home from './pages/Home';
+import ScrollToTop from './components/ScrollToTop';
+
+// Pages
 import Groups from './pages/Groups';
+import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 
 const RestrictedRoute = createRestrictedRoute(SignIn);
 
 const AppRouter = () => (
   <Router>
-    <div className="content-inner">
-      <ScrollToTop />
-      <Menu />
-      <RestrictedRoute exact path={paths.home()} component={Home} />
-      <RestrictedRoute exact path={paths.groups()} component={Groups} />
-      <RestrictedRoute exact path={paths.group(':groupKey')} component={Home} />
-    </div>
+      <Fragment>
+        <ScrollToTop />
+        <Menu />
+        <RestrictedRoute exact path={routes.home.path()} component={Home} />
+        <RestrictedRoute exact path={routes.groups.path()} component={Groups} />
+        <RestrictedRoute exact path={routes.group.path(':groupKey')} component={Home} />
+      </Fragment>
   </Router>
 );
 

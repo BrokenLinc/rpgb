@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import { FirestoreCollection } from 'react-firestore';
 
@@ -24,14 +24,14 @@ renderGroupsList.propTypes = {
 class Groups extends Component {
   render() {
     return (
-      <div className="p-content">
+      <Fragment>
         <h1>Groups</h1>
         <FirestoreCollection
           path="groups"
           sort="name"
           render={renderGroupsList}
         />
-      </div>
+      </Fragment>
     );
   }
 }

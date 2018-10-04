@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import RestrictedComponent from './RestrictedComponent';
 
-const restrictAccess = (ChildComponent, ReplacementComponent) => {
+const restrictAccess = (ChildComponent, ReplacementComponent, stateKey) => {
   return connect(
     state => ({
-      user: state.user,
+      user: state[stateKey],
     }),
     null,
     (stateProps, dispatchProps, ownProps) => (assign(
