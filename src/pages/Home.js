@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import firebase from 'firebase';
 
 const Home = () => (
   <Fragment>
@@ -7,3 +8,10 @@ const Home = () => (
 );
 
 export default Home;
+
+const helloWorld = firebase.functions().httpsCallable('helloWorld');
+helloWorld().then((result) => {
+  console.log(result.data.text);
+}).catch(({ code, message, details }) => {
+    //
+});

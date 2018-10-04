@@ -8,7 +8,6 @@
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-app-env": "^1.2.2",
     "react-dom": "^16.5.2",
     "react-firestore": "^0.9.0",
     "react-redux": "^5.0.7",
@@ -18,8 +17,8 @@
     "redux": "^4.0.0"
   },
   "scripts": {
-    "start": "react-app-env start --env-file=.env.local",
-    "build": "react-app-env build --env-file=.env.public",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

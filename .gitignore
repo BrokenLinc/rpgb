@@ -65,3 +65,6 @@ typings/
 
 # Firebase platform files
 .firebase
+
+# Create-react-app build
+build
