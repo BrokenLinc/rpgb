@@ -9,13 +9,13 @@ import AppRouter from './AppRouter';
 import AuthConnector from './auth/AuthConnector';
 
 const App = () => (
-    <Provider store={store}>
-        <FirestoreProvider firebase={firebase}>
-            <AuthConnector auth={auth}>
-                <AppRouter />
-            </AuthConnector>
-        </FirestoreProvider>
-    </Provider>
+  <Provider store={store}>
+    <FirestoreProvider firebase={firebase}>
+      <AuthConnector auth={auth}>
+        <AppRouter />
+      </AuthConnector>
+    </FirestoreProvider>
+  </Provider>
 );
 
 export default App;

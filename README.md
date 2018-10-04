@@ -4,10 +4,10 @@ An app using the Firebase platform.
 
 ### History
 1. Created a new project in Firebase console and enabled **hosting**, **Firestore**, **functions** and **Google auth**.
-2. Ran `$ firebase-init` locally. (Selected **hosting**, **Firestore** and **functions**.)
-3. Deleted `public` directory and ran `$ npx create-react-app`.
-4. Added `.idea` and `.firebase` to `.gitignore`, and added `.eslintrc` file.
-5. Added project files. Overwrote `config.js` with Firebase values.
+2. Ran `$ firebase-init` locally. (Selected **hosting**, **Firestore** and **functions**. Set hosting directory to `build`.)
+3. Added `.idea`, `build` and `.firebase` to `.gitignore` and added `.eslintrc` file.
+4. Ran `$ npx create-react-app`.
+5. Added `src` files and `.editorconfig`. Overwrote `config.js` with Firebase project values.
 
 # create-react-app
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

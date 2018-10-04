@@ -17,13 +17,13 @@ const RestrictedRoute = createRestrictedRoute(SignIn);
 
 const AppRouter = () => (
   <Router>
-      <Fragment>
-        <ScrollToTop />
-        <Menu />
-        <RestrictedRoute exact path={routes.home.path()} component={Home} />
-        <RestrictedRoute exact path={routes.groups.path()} component={Groups} />
-        <RestrictedRoute exact path={routes.group.path(':groupKey')} component={Home} />
-      </Fragment>
+    <Fragment>
+      <ScrollToTop />
+      <Menu />
+      <RestrictedRoute exact path={routes.home.path()} component={Home} />
+      <RestrictedRoute exact path={routes.groups.path()} component={Groups} />
+      <RestrictedRoute exact path={routes.group.path(':groupKey')} component={Home} />
+    </Fragment>
   </Router>
 );
 
