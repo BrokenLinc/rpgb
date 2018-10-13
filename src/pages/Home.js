@@ -1,17 +1,12 @@
 import React, { Fragment } from 'react';
-import firebase from 'firebase';
 
-const Home = () => (
+import withMessage from '../hoc/withMessage';
+
+const Home = ({ message }) => (
   <Fragment>
     <h1>Home</h1>
+    {message && <p>{ message }</p>}
   </Fragment>
 );
 
-export default Home;
-
-const helloWorld = firebase.functions().httpsCallable('helloWorld');
-helloWorld().then((result) => {
-  console.log(result.data.text);
-}).catch(({ code, message, details }) => {
-  console.log(code, message, details);
-});
+export default withMessage(Home);
