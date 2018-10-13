@@ -1,13 +1,17 @@
 # rpgb
 
-An app using the Firebase platform.
+An create-react-app using the Firebase platform.
 
 ### History
 1. Created a new project in Firebase console and enabled **hosting**, **Firestore**, **functions** and **Google auth**.
-2. Ran `$ firebase-init` locally. (Selected **hosting**, **Firestore** and **functions**. Set hosting directory to `build`.)
-3. Added `.idea`, `build` and `.firebase` to `.gitignore` and added `.eslintrc` file.
-4. Ran `$ npx create-react-app`.
+2. Ran `$ firebase-init` locally (in root). (Selected **hosting**, **Firestore** and **functions**. Set hosting directory to `build`.)
+3. Added `.idea`, `build` and `.firebase` to `.gitignore`, and added `.eslintrc` file.
+4. Ran `$ npx create-react-app` (in root).
 5. Added `src` files and `.editorconfig`. Overwrote `config.js` with Firebase project values.
+6. Added `cors` package to `/functions`.
+
+### Notes
+- To partial deploy, use the `only` flag as in: `$ firebase deploy --only functions`
 
 # create-react-app
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

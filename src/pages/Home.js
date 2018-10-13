@@ -13,5 +13,5 @@ const helloWorld = firebase.functions().httpsCallable('helloWorld');
 helloWorld().then((result) => {
   console.log(result.data.text);
 }).catch(({ code, message, details }) => {
-    //
+  console.log(code, message, details);
 });

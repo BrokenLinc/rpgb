@@ -3,6 +3,6 @@ const cors = require('cors')({ origin: true });
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
-    response.send("Hello from Firebase (and CORS)!");
+    response.status(201).json({ data: 'Hello from Firebase (and CORS)!' });
   });
 });
