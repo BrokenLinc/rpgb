@@ -7,9 +7,9 @@ const renderGroupsList = ({ isLoading, data }) => {
     <div>loading...</div>
   ) : (
     <ul>
-      {data.map(group => (
-        <li key={group.id}>
-          {group.name}
+      {data.map(character => (
+        <li key={character.id}>
+          {character.name}
         </li>
       ))}
     </ul>
@@ -27,7 +27,7 @@ class Groups extends Component {
       <Fragment>
         <h1>Groups</h1>
         <FirestoreCollection
-          path="groups"
+          path="characters"
           sort="name"
           render={renderGroupsList}
         />
