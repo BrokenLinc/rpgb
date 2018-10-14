@@ -5,7 +5,6 @@ import map from 'lodash/map';
 import { auth } from '../firebase';
 import { mainMenu } from '../menus';
 import withUser from '../auth/withUser';
-import Button from './Button';
 
 const handleClickSignOut = () => auth.signOut();
 
@@ -19,7 +18,7 @@ const Menu = ({ user }) => (
         {map(mainMenu.routes, ({ title, path}, index) => (
             <li key={index}><Link to={path()}>{title()}</Link></li>
         ))}
-        <Button onClick={handleClickSignOut}>Log out</Button>
+        <button onClick={handleClickSignOut}>Log out</button>
       </ul>
     )}
   </Fragment>

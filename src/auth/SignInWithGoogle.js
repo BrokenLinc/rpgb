@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import firebase from 'firebase';
+
+import { auth } from './config';
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 class SignInWithGoogle extends Component {
   handleClick = () => {
-    return this.props.auth.signInWithPopup(googleAuthProvider);
+    return auth.signInWithPopup(googleAuthProvider);
   };
 
   render() {
@@ -15,12 +16,6 @@ class SignInWithGoogle extends Component {
     );
   }
 }
-
-SignInWithGoogle.propTypes = {
-  auth: PropTypes.shape({
-    GoogleAuthProvider: PropTypes.func.isRequired,
-  }).isRequired
-};
 
 SignInWithGoogle.defaultProps = {
   children: 'Sign In with Google',

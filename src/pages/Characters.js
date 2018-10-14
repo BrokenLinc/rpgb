@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, { Fragment} from 'react';
 import { FirestoreCollection } from 'react-firestore';
 import { Link } from 'react-router-dom';
 
@@ -18,19 +18,15 @@ const renderGroupsList = ({ isLoading, data }) => {
   );
 };
 
-class Characters extends Component {
-  render() {
-    return (
-      <Fragment>
-        <h1>Characters</h1>
-        <FirestoreCollection
-          path="characters"
-          sort="name"
-          render={renderGroupsList}
-        />
-      </Fragment>
-    );
-  }
-}
+const Characters = () => (
+  <Fragment>
+    <h1>Characters</h1>
+    <FirestoreCollection
+      path="characters"
+      sort="name"
+      render={renderGroupsList}
+    />
+  </Fragment>
+);
 
 export default Characters;

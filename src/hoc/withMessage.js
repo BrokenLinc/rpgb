@@ -1,3 +1,4 @@
+// Example cloud function call as HoC
 import React from 'react';
 
 import { helloWorld } from '../functions';

@@ -4,8 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import routes from './routes';
 
 // Components
-import Menu from './components/Menu';
 import PrivateRoute from './auth/PrivateRoute';
+import Menu from './components/Menu';
 import ScrollToTop from './components/ScrollToTop';
 
 // Pages
