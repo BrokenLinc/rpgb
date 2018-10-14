@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
 
-export default connect(({ user }) => {
+import { USER_REDUX_STORE_KEY } from './config';
+
+export default connect((state) => {
   const {
     displayName,
     email,
+    isLoading,
     photoURL,
     uid,
-  } = user;
+  } = state[USER_REDUX_STORE_KEY];
 
   return {
     user: {
-      isLoaded: (!user.isLoading && !!user.email),
+      isLoaded: (!isLoading && !!email),
       displayName,
       email,
       photoURL,

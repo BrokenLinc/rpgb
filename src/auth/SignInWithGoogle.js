@@ -6,25 +6,25 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 class SignInWithGoogle extends Component {
   handleClick = () => {
-    this.props.auth.signInWithPopup(googleAuthProvider);
+    return this.props.auth.signInWithPopup(googleAuthProvider);
   };
 
   render() {
     return (
-      <button
-        type="button"
-        {...this.props.buttonProps}
-        onClick={this.handleClick}
-      >
-        Sign In with Google
-      </button>
+      <button {...this.props} onClick={this.handleClick} />
     );
   }
 }
 
 SignInWithGoogle.propTypes = {
-  auth: PropTypes.object.isRequired,
-  buttonProps: PropTypes.object,
+  auth: PropTypes.shape({
+    GoogleAuthProvider: PropTypes.func.isRequired,
+  }).isRequired
+};
+
+SignInWithGoogle.defaultProps = {
+  children: 'Sign In with Google',
+  type: 'button',
 };
 
 export default SignInWithGoogle;

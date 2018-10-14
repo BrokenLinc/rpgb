@@ -4,7 +4,7 @@ import map from 'lodash/map';
 
 import { auth } from '../firebase';
 import { mainMenu } from '../menus';
-import withUser from '../hoc/withUser';
+import withUser from '../auth/withUser';
 import Button from './Button';
 
 const handleClickSignOut = () => auth.signOut();

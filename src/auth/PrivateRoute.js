@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import withUser from '../hoc/withUser';
+import withUser from './withUser';
 import SignIn from '../pages/SignIn';
 
 const PrivateRoute = ({ component: Component, ...routeProps }) => (

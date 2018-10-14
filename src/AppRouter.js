@@ -5,7 +5,7 @@ import routes from './routes';
 
 // Components
 import Menu from './components/Menu';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './auth/PrivateRoute';
 import ScrollToTop from './components/ScrollToTop';
 
 // Pages

@@ -1,12 +1,10 @@
 const ACTIONS = {
-  SIGNED_IN: 'SIGNED_IN',
-  SIGNED_OUT: 'SIGNED_OUT',
+  SIGNED_IN: 'user/signed-in',
+  SIGNED_OUT: 'user/signed-out',
 };
 
-const actionCreators = {
-  signedIn: user => ({ type: ACTIONS.SIGNED_IN, payload: { user } }),
-  signedOut: () => ({ type: ACTIONS.SIGNED_OUT }),
-};
+export const signedIn = (user) => ({ type: ACTIONS.SIGNED_IN, payload: { user } });
+export const signedOut = () => ({ type: ACTIONS.SIGNED_OUT });
 
 const reducer = (state = { isLoading: true }, action) => {
   switch (action.type) {
@@ -19,7 +17,4 @@ const reducer = (state = { isLoading: true }, action) => {
   }
 };
 
-module.exports = {
-  actionCreators,
-  reducer,
-};
+export default reducer;

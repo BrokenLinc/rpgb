@@ -11,9 +11,8 @@ import AuthConnector from './auth/AuthConnector';
 const App = () => (
   <Provider store={store}>
     <FirestoreProvider firebase={firebase}>
-      <AuthConnector auth={auth}>
-        <AppRouter />
-      </AuthConnector>
+      <AuthConnector auth={auth} />
+      <AppRouter />
     </FirestoreProvider>
   </Provider>
 );
