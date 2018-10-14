@@ -1,31 +1,28 @@
 import React, {Component, Fragment} from 'react';
-import PropTypes from 'prop-types';
 import { FirestoreCollection } from 'react-firestore';
+import { Link } from 'react-router-dom';
+
+import ROUTE from '../routes';
 
 const renderGroupsList = ({ isLoading, data }) => {
   return isLoading ? (
     <div>loading...</div>
   ) : (
     <ul>
-      {data.map(character => (
-        <li key={character.id}>
-          {character.name}
+      {data.map(({ id, name }) => (
+        <li key={id}>
+          <Link to={ROUTE.character.path(id)}>{name}</Link>
         </li>
       ))}
     </ul>
   );
 };
 
-renderGroupsList.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  data: PropTypes.array,
-};
-
-class Groups extends Component {
+class Characters extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Groups</h1>
+        <h1>Characters</h1>
         <FirestoreCollection
           path="characters"
           sort="name"
@@ -36,4 +33,4 @@ class Groups extends Component {
   }
 }
 
-export default Groups;
+export default Characters;

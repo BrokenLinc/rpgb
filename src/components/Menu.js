@@ -1,20 +1,21 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import map from 'lodash/map';
 
 import { auth } from '../firebase';
-import Button from './Button';
 import { mainMenu } from '../menus';
+import withUser from '../hoc/withUser';
+import Button from './Button';
 
 const handleClickSignOut = () => auth.signOut();
 
-const Menu = ({ isUserLoaded, user }) => (
+const Menu = ({ user }) => (
   <Fragment>
-    {isUserLoaded && (
+    {user.isLoaded && (
       <ul>
         <li>Welcome, {user.displayName}</li>
+        <li>Welcome, {user.uid}</li>
+        <li><img width={80} src={user.photoURL} alt={user.displayName} /></li>
         {map(mainMenu.routes, ({ title, path}, index) => (
             <li key={index}><Link to={path()}>{title()}</Link></li>
         ))}
@@ -24,12 +25,4 @@ const Menu = ({ isUserLoaded, user }) => (
   </Fragment>
 );
 
-Menu.propTypes = {
-  isUserLoaded: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired,
-};
-
-export default connect(({ user }) => ({
-  isUserLoaded: (!user.isLoading && !!user.email),
-  user,
-}))(Menu);
+export default withUser(Menu);

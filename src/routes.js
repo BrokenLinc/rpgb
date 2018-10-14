@@ -3,12 +3,12 @@ module.exports = {
     title: () => 'Home',
     path: () => '/',
   },
-  groups: {
-    title: () => 'Groups',
-    path: () => '/groups',
+  characters: {
+    title: () => 'Characters',
+    path: () => '/characters',
   },
-  group: {
-    title: (groupName) => groupName,
-    path: key => `/groups/${key}`,
+  character: {
+    title: (characterName) => characterName,
+    path: key => `/characters/${key}`,
   },
 };
