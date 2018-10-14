@@ -1,20 +1,19 @@
-import React, {Component, Fragment} from 'react';
-// import { FirestoreDocument } from 'react-firestore';
+import React from 'react';
+import { FirestoreDocument } from 'react-firestore';
 
-class Characters extends Component {
-  render() {
-    console.log(this.props.match);
-    return (
-      <Fragment>
-        <h1>Character</h1>
-        {/*<FirestoreDocument*/}
-          {/*path="characters/"*/}
-        {/*>*/}
-          {/**/}
-        {/*</FirestoreDocument>*/}
-      </Fragment>
-    );
-  }
-}
+const renderCharacter = ({isLoading, data}) => {
+  return isLoading ? (
+    <div>loading...</div>
+  ) : (
+    <h1>{data.name}</h1>
+  );
+};
+
+const Characters = ({ match }) => (
+  <FirestoreDocument
+    path={`characters/${match.params.characterKey}`}
+    render={renderCharacter}
+  />
+);
 
 export default Characters;
