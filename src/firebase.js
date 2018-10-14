@@ -6,6 +6,9 @@ import config from './config';
 
 const firebaseInstance = firebase.initializeApp(config.firebase);
 
+const firestore = firebase.firestore();
+firestore.settings({ timestampsInSnapshots: true });
+
 export const auth = firebaseInstance.auth();
 
 export default firebaseInstance;
