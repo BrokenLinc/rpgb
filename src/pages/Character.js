@@ -9,11 +9,11 @@ const renderCharacter = ({isLoading, data}) => {
   );
 };
 
-const Characters = ({ match }) => (
+const Character = ({ match }) => (
   <FirestoreDocument
     path={`characters/${match.params.characterKey}`}
     render={renderCharacter}
   />
 );
 
-export default Characters;
+export default Character;
