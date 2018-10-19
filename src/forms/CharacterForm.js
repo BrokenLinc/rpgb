@@ -7,7 +7,7 @@ import Button from '../components/Button';
 
 const CharacterForm = ({ data, onSubmit }) => (
   <form onSubmit={onSubmit}>
-    <h1>{data.name}</h1>
+    <h1>{data.name || 'Untitled'}</h1>
     <input name="name" defaultValue={data.name} type="text" />
     <Button type="submit">Save</Button>
   </form>
@@ -15,5 +15,5 @@ const CharacterForm = ({ data, onSubmit }) => (
 
 export default compose(
   withLoadingSpinner,
-  withUpdateSnapshotOnSubmit(['name']),
+  withUpdateSnapshotOnSubmit('name'),
 )(CharacterForm);

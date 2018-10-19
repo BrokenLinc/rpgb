@@ -11,7 +11,7 @@ const getFormValues = (form, fieldNames) => {
   }, {});
 };
 
-const withUpdateSnapshotOnSubmit = (fieldNames) => {
+const withUpdateSnapshotOnSubmit = (...fieldNames) => {
   return withHandlers({
     onSubmit: ({snapshot}) => (event) => {
       event.preventDefault();
