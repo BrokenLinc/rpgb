@@ -1,18 +1,12 @@
 import React from 'react';
 import { FirestoreDocument } from 'react-firestore';
 
-const renderCharacter = ({isLoading, data}) => {
-  return isLoading ? (
-    <div>loading...</div>
-  ) : (
-    <h1>{data.name}</h1>
-  );
-};
+import CharacterForm from '../forms/CharacterForm';
 
 const Character = ({ match }) => (
   <FirestoreDocument
     path={`characters/${match.params.characterKey}`}
-    render={renderCharacter}
+    render={(props) => <CharacterForm {...props}/>}
   />
 );
 

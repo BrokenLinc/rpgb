@@ -3,20 +3,17 @@ import { FirestoreCollection } from 'react-firestore';
 import { Link } from 'react-router-dom';
 
 import ROUTE from '../routes';
+import withLoadingSpinner from '../hoc/withLoadingSpinner';
 
-const renderGroupsList = ({ isLoading, data }) => {
-  return isLoading ? (
-    <div>loading...</div>
-  ) : (
-    <ul>
-      {data.map(({ id, name }) => (
-        <li key={id}>
-          <Link to={ROUTE.character.path(id)}>{name}</Link>
-        </li>
-      ))}
-    </ul>
-  );
-};
+const CharacterList = withLoadingSpinner(({ isLoading, data }) => (
+  <ul>
+    {data.map(({ id, name }) => (
+      <li key={id}>
+        <Link to={ROUTE.character.path(id)}>{name}</Link>
+      </li>
+    ))}
+  </ul>
+));
 
 const Characters = () => (
   <Fragment>
@@ -24,7 +21,7 @@ const Characters = () => (
     <FirestoreCollection
       path="characters"
       sort="name"
-      render={renderGroupsList}
+      render={(props) => <CharacterList {...props} />}
     />
   </Fragment>
 );

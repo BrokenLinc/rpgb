@@ -8,6 +8,7 @@ function withMessage(WrappedComponent) {
     state = {};
 
     componentDidMount() {
+      // TODO: cancel the setState if the component un-mounts before a response
       helloWorld().then(({ data }) => {
         this.setState({ message: data });
       }).catch(({ code, message, details }) => {
