@@ -14,10 +14,10 @@ const Menu = ({ user }) => (
     {user.isLoaded && (
       <ul>
         <li>Welcome, {user.displayName}</li>
-        <li>Welcome, {user.uid}</li>
+        <li>UID: {user.uid}</li>
         <li><img width={80} src={user.photoURL} alt={user.displayName} /></li>
         {map(mainMenu.routes, ({ title, path}, index) => (
-            <li key={index}><Link to={path()}>{title()}</Link></li>
+            <li key={index}><Link to={path()}>{title}</Link></li>
         ))}
         <Button onClick={handleClickSignOut}>Log out</Button>
       </ul>

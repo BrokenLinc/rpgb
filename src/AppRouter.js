@@ -9,8 +9,9 @@ import Menu from './components/Menu';
 import ScrollToTop from './components/ScrollToTop';
 
 // Pages
-import Character from './pages/Character';
 import Characters from './pages/Characters';
+import CharacterAdd from './pages/CharacterAdd';
+import CharacterEdit from './pages/CharacterEdit';
 import Home from './pages/Home';
 
 const AppRouter = () => (
@@ -20,7 +21,8 @@ const AppRouter = () => (
       <Menu />
       <PrivateRoute exact path={routes.home.path()} component={Home} />
       <PrivateRoute exact path={routes.characters.path()} component={Characters} />
-      <PrivateRoute exact path={routes.character.path(':characterKey')} component={Character} />
+      <PrivateRoute exact path={routes.characterAdd.path()} component={CharacterAdd} />
+      <PrivateRoute exact path={routes.characterEdit.path(':characterKey')} component={CharacterEdit} />
     </Fragment>
   </Router>
 );

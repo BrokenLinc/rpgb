@@ -13,9 +13,15 @@ const getFormValues = (form, fieldNames) => {
 
 const withUpdateSnapshotOnSubmit = (...fieldNames) => {
   return withHandlers({
-    onSubmit: ({snapshot}) => (event) => {
+    onSubmit: ({ collection, snapshot }) => (event) => {
       event.preventDefault();
-      snapshot.ref.update(getFormValues(event.target, fieldNames));
+      const data = getFormValues(event.target, fieldNames);
+      if (snapshot) {
+        snapshot.ref.update(data);
+      } else if (collection) {
+        // TODO: firestoreDatabase.collection('characters') => collection
+        // collection.add(data);
+      }
     },
   });
 };

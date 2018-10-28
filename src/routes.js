@@ -1,14 +1,18 @@
 module.exports = {
   home: {
-    title: () => 'Home',
+    title: 'Home',
     path: () => '/',
   },
   characters: {
-    title: () => 'Characters',
+    title: 'Characters',
     path: () => '/characters',
   },
-  character: {
-    title: (characterName) => characterName,
-    path: key => `/characters/${key}`,
+  characterAdd: {
+    title: 'Add Character',
+    path: () => `/characters/add`,
+  },
+  characterEdit: {
+    title: 'Edit Character',
+    path: (key) => `/characters/${key}/edit`,
   },
 };

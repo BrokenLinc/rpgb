@@ -9,7 +9,7 @@ const CharacterList = withLoadingSpinner(({ isLoading, data }) => (
   <ul>
     {data.map(({ id, name }) => (
       <li key={id}>
-        <Link to={ROUTE.character.path(id)}>{name}</Link>
+        <Link to={ROUTE.characterEdit.path(id)}>{name}</Link>
       </li>
     ))}
   </ul>
@@ -17,7 +17,7 @@ const CharacterList = withLoadingSpinner(({ isLoading, data }) => (
 
 const Characters = () => (
   <Fragment>
-    <h1>Characters</h1>
+    <h1>{ROUTE.characters.title}</h1>
     <FirestoreCollection
       path="characters"
       sort="name"
