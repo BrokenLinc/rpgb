@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import routes from './routes';
+import createPrivateRouteComponent from './auth/createPrivateRouteComponent';
 
 // Components
-import PrivateRoute from './auth/PrivateRoute';
 import Menu from './components/Menu';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -13,6 +13,9 @@ import Characters from './pages/Characters';
 import CharacterAdd from './pages/CharacterAdd';
 import CharacterEdit from './pages/CharacterEdit';
 import Home from './pages/Home';
+import SignIn from './pages/SignIn';
+
+const PrivateRoute = createPrivateRouteComponent(SignIn);
 
 const AppRouter = () => (
   <Router>

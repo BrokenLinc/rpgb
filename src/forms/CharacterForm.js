@@ -1,12 +1,10 @@
 import React from 'react';
 import { compose } from 'recompose';
 
-import withLoadingSpinner from '../hoc/withLoadingSpinner';
 import withFirestoreAddOrUpdateForm from '../hoc/withFirestoreAddOrUpdateForm';
 import Button from '../components/Button';
 
 export default compose(
-  withLoadingSpinner,
   withFirestoreAddOrUpdateForm({
     collection: 'characters',
     fields: ['name'],

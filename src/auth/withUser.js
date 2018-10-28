@@ -1,23 +1,18 @@
 import { connect } from 'react-redux';
+import pick from 'lodash/pick';
 
 import { USER_REDUX_STORE_KEY } from './config';
 
 export default connect((state) => {
-  const {
-    displayName,
-    email,
-    isLoading,
-    photoURL,
-    uid,
-  } = state[USER_REDUX_STORE_KEY];
+  const user = pick(state[USER_REDUX_STORE_KEY], [
+    'displayName',
+    'email',
+    'isLoading',
+    'photoURL',
+    'uid',
+  ]);
 
-  return {
-    user: {
-      isLoaded: (!isLoading && !!email),
-      displayName,
-      email,
-      photoURL,
-      uid,
-    },
-  };
+  user.isLoaded = !user.isLoading && user.email;
+
+  return { user };
 });

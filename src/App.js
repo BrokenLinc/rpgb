@@ -1,17 +1,18 @@
-/* Compose Redux Provider, Firestore Provider, AuthConnector, and AppRouter */
+/* Compose Redux, Firestore, auth, and AppRouter */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { FirestoreProvider } from 'react-firestore';
 
+import connectAuthToStore from './auth/connectAuthToStore';
 import firebase, { auth } from './firebase';
 import store from './store';
 import AppRouter from './AppRouter';
-import AuthConnector from './auth/AuthConnector';
+
+connectAuthToStore(auth, store);
 
 const App = () => (
   <Provider store={store}>
     <FirestoreProvider firebase={firebase}>
-      <AuthConnector auth={auth} />
       <AppRouter />
     </FirestoreProvider>
   </Provider>
