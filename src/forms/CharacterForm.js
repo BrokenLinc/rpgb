@@ -3,6 +3,7 @@ import { compose } from 'recompose';
 
 import withFirestoreAddOrUpdateForm from '../hoc/withFirestoreAddOrUpdateForm';
 import Button from '../components/Button';
+import TextFormGroup from '../components/TextFormGroup';
 
 export default compose(
   withFirestoreAddOrUpdateForm({
@@ -11,7 +12,7 @@ export default compose(
   }),
 )(({ data = {}, onSubmit }) => (
   <form onSubmit={onSubmit}>
-    <input name="name" defaultValue={data.name} type="text" />
+    <TextFormGroup label="Name" name="name" defaultValue={data.name} />
     <Button type="submit">Save</Button>
   </form>
 ));

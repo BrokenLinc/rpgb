@@ -3,14 +3,14 @@ import { FirestoreDocument } from 'react-firestore';
 import { compose, renderComponent } from 'recompose';
 
 import ROUTE from '../routes';
-import withRouteParams from '../hoc/withRouteParams';
 import withLoadingSpinner from '../hoc/withLoadingSpinner';
+import withRouteParams from '../hoc/withRouteParams';
 import CharacterForm from '../forms/CharacterForm';
 
 const renderCharacterForm = compose(
   withLoadingSpinner,
   renderComponent(CharacterForm),
-);
+)();
 
 const CharacterEdit = compose(
   withRouteParams('characterKey'),
@@ -19,7 +19,7 @@ const CharacterEdit = compose(
     <h1>{ROUTE.characterEdit.title}</h1>
     <FirestoreDocument
       path={`characters/${characterKey}`}
-      render={renderCharacterForm()}
+      render={renderCharacterForm}
     />
   </Fragment>
 ));

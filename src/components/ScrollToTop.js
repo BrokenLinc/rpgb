@@ -1,15 +1,16 @@
-import { Component } from 'react';
 import { withRouter } from 'react-router';
+import { compose, lifecycle, renderNothing } from 'recompose';
 
-class ScrollToTop extends Component {
-  componentDidUpdate() {
-    if (this.props.history.action === 'PUSH') {
-      window.scrollTo(0, 0);
+const ScrollToTop = compose(
+  withRouter,
+  lifecycle({
+    componentDidUpdate() {
+      if (this.props.history.action === 'PUSH') {
+        window.scrollTo(0, 0);
+      }
     }
-  }
-  render() {
-    return null;
-  }
-}
+  }),
+  renderNothing,
+)();
 
-export default withRouter(ScrollToTop);
+export default ScrollToTop;

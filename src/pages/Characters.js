@@ -19,7 +19,7 @@ const CharacterList = ({ isLoading, data }) => (
 const renderCharacterList = compose(
   withLoadingSpinner,
   renderComponent(CharacterList),
-);
+)();
 
 const Characters = () => (
   <Fragment>
@@ -27,7 +27,7 @@ const Characters = () => (
     <FirestoreCollection
       path="characters"
       sort="name"
-      render={renderCharacterList()}
+      render={renderCharacterList}
     />
   </Fragment>
 );
