@@ -1,16 +1,16 @@
 // Example cloud function call as HoC
 import { compose, lifecycle, withHandlers, withState } from 'recompose';
 
-import { helloWorld } from '../functions';
+import { generateFullNames } from '../functions';
 
-const withMessage = compose(
-  withState('message', 'setMessage'),
+const withNames = (nameCount) => compose(
+  withState('names', 'setNames'),
   withHandlers({
-    getMessage: ({ setMessage }) => () => {
+    getNames: ({ setNames }) => () => {
       // TODO: cancel the setState if the component un-mounts before a response
       // https://reactjs.org/blog/2015/12/16/ismounted-antipattern.html
-      helloWorld().then(({ data }) => {
-        setMessage(data);
+      generateFullNames({ count: nameCount }).then(({ data }) => {
+        setNames(data);
       }).catch(({ code, message, details }) => {
         // console.log(code, message, details);
       });
@@ -18,9 +18,9 @@ const withMessage = compose(
   }),
   lifecycle({
     componentDidMount() {
-      this.props.getMessage();
+      this.props.getNames();
     }
   }),
 );
 
-export default withMessage;
+export default withNames;
