@@ -12,9 +12,9 @@ const Home = compose(
   withNames(4),
 )(({ message, names, getNames }) => (
   <Fragment>
-    <Typography component="h1" variant="h4" gutterBottom>{ROUTE.home.title}</Typography>
-    {message && <Typography component="p" variant="body1" gutterBottom>{ message }</Typography>}
-    {names && <Typography component="p" variant="body1" gutterBottom>Random names: { names.join(', ') }</Typography>}
+    <Typography component="h1" variant="h1" gutterBottom>{ROUTE.home.title}</Typography>
+    {message && <Typography gutterBottom>{ message }</Typography>}
+    {names && <Typography gutterBottom>Random names: { names.join(', ') }</Typography>}
     <Button onClick={getNames} variant="contained" color="primary">Get Names</Button>
   </Fragment>
 ));
