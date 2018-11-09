@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
 
-const Button = (props) => (
-  <button type="button" {...props} className={cn('btn', props.className)} />
+const Button = ({ classes, ...rest}) => (
+  <button type="button" className={cn('btn', classes)} {...rest} />
 );
 
 Button.propTypes = {
-  className: PropTypes.string,
+  classes: PropTypes.string,
 };
 
 export default Button;

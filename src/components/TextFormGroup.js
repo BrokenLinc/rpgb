@@ -1,13 +1,15 @@
 import React from 'react';
+import cn from 'classnames';
 
-const TextFormGroup = ({ label, name, ...rest}) => (
-  <div>
-    <label htmlFor={name} className="d-block">{label}</label>
+const TextFormGroup = ({ classes, id, inputRef,  label, name, ...rest}) => (
+  <div className={cn('form-group', classes)}>
+    <label htmlFor={name}>{label}</label>
     <input
-      id={name}
-      className="d-block"
+      id={id || name}
+      className="text-field"
       name={name}
       type="text"
+      ref={inputRef}
       {...rest}
     />
   </div>

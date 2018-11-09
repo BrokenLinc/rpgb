@@ -1,3 +1,75 @@
+html {
+  color: #111;
+  background-color: #eee;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.25rem;
+}
+
+a {
+  font-weight: normal;
+}
+
+.btn {
+  -webkit-appearance: none;
+  background-color: #0071FF;
+  border: 0 none;
+  border-radius: 0.125rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: bold;
+  height: 2.5rem;
+  letter-spacing: 0.1em;
+  padding: 0 1.5rem;
+  text-transform: uppercase;
+  transition: 0.1s;
+  box-shadow: 0 3px 9px rgba(0,0,0,0.2);
+}
+.btn:hover {
+  background-color: #0087FF;
+}
+.btn:active {
+  background-color: #0052D6;
+}
+.btn:focus {
+  outline: 0 none;
+}
+.form-group {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.text-field {
+  border: 1px solid #ddd;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  width: 10rem;
+}
+
 .d-block {
  display: block !important;
+}
+
+.table {
+  background-color: white;
+  border: 2px solid currentColor;
+  border-spacing: 0;
+  min-width: 280px;
+}
+.table thead th {
+  border-bottom: 1px solid currentColor;
+}
+.table tbody td {
+  border-top: 1px solid #ccc;
+}
+.table th,
+.table td {
+  padding: 0.25em;
+  text-align: left;
 }

@@ -7,13 +7,24 @@ import ROUTE from '../routes';
 import withLoadingSpinner from '../hoc/withLoadingSpinner';
 
 const CharacterList = ({ isLoading, data }) => (
-  <ul>
-    {data.map(({ id, name }) => (
-      <li key={id}>
-        <Link to={ROUTE.characterEdit.path(id)}>{name}</Link>
-      </li>
-    ))}
-  </ul>
+  <table className="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      {data.map(({ id, name }) => (
+        <tr key={id}>
+          <td>{name}</td>
+          <td>
+            <Link to={ROUTE.characterEdit.path(id)}>Edit</Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
 );
 
 const renderCharacterList = compose(
